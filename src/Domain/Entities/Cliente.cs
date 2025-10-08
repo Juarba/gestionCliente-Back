@@ -9,11 +9,12 @@ namespace Domain.Entities
     public class Cliente
     {
         public int Id { get; set; }
-        public int CUIT { get; set; } 
+        public string CUIT { get; set; } 
         public string  Nombre { get; set; }
         public string Apellido { get; set; }  
         public string Telefono {  get; set; }
-        public Direccion Direccion{ get; set; }
+        public Domicilio Domicilio{ get; set; }
+        public CtaCte CtaCte { get; set; }
         public DateTime Fecha { get; set; }
 
     }
