@@ -14,6 +14,7 @@ namespace Infrastructure.Data
         public DbSet<Domicilio> Domicilios { get; set; }
         public DbSet<CtaCte> CtaCtes { get; set; }
         public DbSet<Movimiento> Movimientos { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -61,6 +62,15 @@ namespace Infrastructure.Data
                 entity.Property(e => e.Haber).HasColumnType("decimal(18,2)");
                 entity.Property(e => e.Debe).HasColumnType("decimal(18,2)");
                 entity.Property(e => e.Fecha).HasColumnType("datetime");
+            });
+
+            // Configuracion de User
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
+                entity.Property(e => e.Password).IsRequired().HasMaxLength(255);
+                entity.HasIndex(e => e.Name).IsUnique();
             });
         }
     }
