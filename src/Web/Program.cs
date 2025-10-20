@@ -18,10 +18,18 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 #region Services
 builder.Services.AddScoped<IClienteService, ClienteService>();
+builder.Services.AddScoped<IDomicilioService, DomicilioService>();
+builder.Services.AddScoped<ICtaCteService, CtaCteService>();
+builder.Services.AddScoped<IMovimientoService, MovimientoService>();
+builder.Services.AddScoped<IUserService, UserService>();
 #endregion
 
 #region Repositories
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
+builder.Services.AddScoped<IDomicilioRepository, DomicilioRepository>();
+builder.Services.AddScoped<ICtaCteRepository, CtaCteRepository>();
+builder.Services.AddScoped<IMovimientoRepository, MovimientoRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 #endregion
 
 // Add services to the container.
